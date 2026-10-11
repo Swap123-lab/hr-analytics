@@ -1,0 +1,58 @@
+Overall attrition: 22.1%
+
+            attrition_rate  headcount
+Department                           
+Finance           0.197674        344
+HR                0.246753        231
+Operations        0.198686        609
+Sales             0.268692        856
+Technology        0.193750        960 
+
+          attrition_rate  headcount
+OverTime                           
+No              0.158016       2177
+Yes             0.386391        823 
+
+            attrition_rate  headcount
+TenureBand                           
+0-1               0.233407        904
+2-3               0.212230        834
+4-5               0.215953        514
+6-10              0.225086        582
+10+               0.192771        166 
+
+           attrition_rate  headcount
+PayBand                             
+<0.85            0.298188        607
+0.85-0.95        0.256831        549
+0.95-1.05        0.223001        713
+1.05-1.15        0.178322        572
+>1.15            0.141324        559 
+
+Logistic Regression: CV AUC 0.735 (+/- 0.026) | Test AUC 0.744
+Random Forest: CV AUC 0.713 (+/- 0.029) | Test AUC 0.723
+
+Best model: Logistic Regression
+              precision    recall  f1-score   support
+
+        Stay       0.88      0.67      0.76       585
+       Leave       0.37      0.68      0.48       165
+
+    accuracy                           0.67       750
+   macro avg       0.63      0.68      0.62       750
+weighted avg       0.77      0.67      0.70       750
+
+Top drivers (drop in AUC when shuffled):
+ OverTime                   0.0937
+JobSatisfaction            0.0533
+CompaRatio                 0.0343
+WorkLifeBalance            0.0196
+BusinessTravel             0.0180
+YearsSinceLastPromotion    0.0130
+DistanceFromHome           0.0126
+YearsAtCompany             0.0090
+dtype: float64 
+
+High-risk active employees flagged: 122
+Expected leavers among high-risk group: 100
+Expected replacement cost at risk: 24,541,154; potential saving at 20% save rate: 4,908,231
